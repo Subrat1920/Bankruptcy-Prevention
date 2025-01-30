@@ -1,6 +1,7 @@
 import sys
 import logging
 from src.logger import logging
+from src import logger
 
 def error_message_details(error, error_details: sys):
     _,_,exc_tb = error_details.exc_info()
@@ -16,3 +17,11 @@ class CustomException(Exception):
 
     def __str__(self):
         return self.error_message
+    
+if __name__=='__main__':
+    try:
+        logger.logging.info('Enter the try block')
+        a = 1/0
+        print('This is will not be printed')
+    except Exception as e:
+        raise CustomException(e, sys)
