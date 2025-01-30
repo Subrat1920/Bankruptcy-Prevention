@@ -14,6 +14,8 @@ Bankruptcy is a critical issue that can have severe economic and financial conse
         git clone https://github.com/Subrat1920/Bankruptcy-Prevention.git
 ##### 2. Create an Virtual Environment
         python -m venv venv
-##### 3. Install all the Dependenices
+##### 3. Activate Virtual Environment
+        venv\Scripts\activate
+##### 4. Install all the Dependenices
         pip install -r requirements.txt
         
