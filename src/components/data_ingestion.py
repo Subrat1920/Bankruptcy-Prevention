@@ -13,11 +13,11 @@ from dataclasses import dataclass
 class DataIngestionConfig:
     ## artifact folder is usually required to store the output of the data
     ### saving the train data in artifact
-    train_data_path:str=os.path.join('artifact', 'train.csv')
+    train_data_path:str=os.path.join('artifacts', 'train.csv')
     ### saving test data in artifact
-    test_data_path:str=os.path.join('artifact', 'test.csv')
+    test_data_path:str=os.path.join('artifacts', 'test.csv')
     ### we also need to save the whole data 
-    raw_data_path:str=os.path.join('artifact', 'data.csv')
+    raw_data_path:str=os.path.join('artifacts', 'data.csv')
 
 class DataIngestion:
     def __init__(self):
