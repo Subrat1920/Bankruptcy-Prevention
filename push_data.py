@@ -53,6 +53,7 @@ if __name__=='__main__':
     FILE_PATH = 'Notebook\Datasets\pre_processed_data.csv'
     DATABASE = 'CleanedBankruptcyPrevention'
     Collection = 'BankruptcyData'
+    ## initialize Class Object
     bankjObj = BankruptcyPrevention()
     records = bankjObj.csv_to_json_converter(FILE_PATH)
     no_of_records = bankjObj.insert_data_into_mongodf(records, DATABASE, Collection)
