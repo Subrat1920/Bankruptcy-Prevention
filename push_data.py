@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 import pymongo
 from src import logger
-from src import exception
+from src.exception import CustomException
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -23,7 +23,7 @@ class BankruptcyPrevention():
         try:
             pass
         except Exception as e:
-            raise exception(e, sys)
+            raise CustomException(e, sys)
         
     def csv_to_json_converter(self, file_path):
         try:
@@ -32,7 +32,7 @@ class BankruptcyPrevention():
             records = list(json.loads(data.T.to_json()).values())
             return records
         except Exception as e:
-            raise exception(e, sys)
+            raise CustomException(e, sys)
         
     def insert_data_into_mongodf(self, records, database, collection):
         ## here collection is a table that is present in mysql
@@ -47,7 +47,7 @@ class BankruptcyPrevention():
             self.collection.insert_many(self.records)
             return len(self.records)
         except Exception as e:
-            raise exception(e, sys)
+            raise CustomException(e, sys)
 
 if __name__=='__main__':
     FILE_PATH = 'Notebook\Datasets\pre_processed_data.csv'

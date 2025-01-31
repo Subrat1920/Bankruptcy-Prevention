@@ -1,7 +1,7 @@
 from datetime import datetime
 import os
 
-from src.components.constants import training_pipline
+from src.constants import training_pipline
 
 print(training_pipline.PIPLINE_NAME)
 print(training_pipline.ARTIFACT_DIR)
