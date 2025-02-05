@@ -45,81 +45,81 @@ class ModelTrainer:
 
             model_params = [
                 ('Logistic Regression',
-    LogisticRegression(),
-    {
-        'penalty':['l1','l2','elasticnet', None],
-        'C' : [0.1, 0.3, 0.5, 0.7, 0.9],
-        'solver' : ['lbfgs', 'newton-cg', 'sag', 'saga'],
-        'max_iter' : [100, 300, 500, 700, 900]
-    }
-    ),
-    ('Decision Tree Classifier',
-    DecisionTreeClassifier(),
-     {
-         'criterion' : ['gini', 'entropy'],
-         'splitter' : ['best', 'random'],
-         'max_depth': [x for x in range(0,5)],
-         'min_samples_split' : [x for x in range(2,10, 2)],
-         'min_samples_leaf' : [x for x in range(1,10, 3)],
-         'max_features' : [x for x in range(0,5)],
-      }
-    ),
-    ('Random Forest Classifier',
-     RandomForestClassifier(),
-     {
-        'n_estimators' : [x*100 for x in range(1,10,2)],
-        'criterion' : ['gini', 'entropy', 'log_loss'],
-        'max_depth': [x for x in range(0,5)],
-        'min_samples_split' : [x for x in range(2,10, 2)],
-        'min_samples_leaf' : [x for x in range(1,10,3)],
-        'min_weight_fraction_leaf' : [x/10 for x in range(1,10,3)],
-        'max_features' : ['sqrt', 'log2', None],
-     }
-    ), 
-    ('Gradient Boosting Classifier',
-    GradientBoostingClassifier(),
-     {
-        'loss' : ['log_loss', 'exponential'],
-        'learning_rate' : [x/10 for x in range(1,10,3)],
-        'n_estimators' : [x*100 for x in range(1,10,2)],
-        'subsample' : [x/10 for x in range(1,10,3)],
-        'criterion' : ['friedman_mse', 'squared_error'],
-        'min_samples_split' : [x for x in range(2,10, 2)],
-        'min_samples_leaf' : [x for x in range(1,10,3)],
-        'min_weight_fraction_leaf' : [x/10 for x in range(1,10,3)],
-        'max_depth' : [x for x in range(3,10,2)],
-        'max_features' : ['sqrt', 'log2'],
-     }
-    ),
-    ('Support Vector Classifier',
-    SVC(),
-     {
-        'C' : [x/10 for x in range(1,10,3)],
-        'kernel' : ['linear', 'poly', 'rbf', 'sigmoid'],
-        'degree' : [x for x in range(3,10,3)],
-        'gamma' : ['scale', 'auto'],
-        'coef0' : [x/10 for x in range(1,10,3)],
-        'tol' : [x/1000 for x in range(1,10, 2)],
-     }
-    ), 
-    ('K Nearest Neighbors Classifier',
-    KNeighborsClassifier(),
-     {
-        'n_neighbors' : [x for x in range(1,10,3)],
-        'weights' : ['uniform','distance'],
-        'algorithm' : ['auto', 'ball_tree', 'kd_tree', 'brute'],
-        'leaf_size' : [x for x in range(30,100,20)],
-        'p' : [x for x in range(2,10,3)],
-     }
-    ),
-    ('Adaboost Classifier',
-     AdaBoostClassifier(),
-     {
-        'n_estimators' : [x*100 for x in range(1, 10, 2)],
-        'learning_rate' : [x/10 for x in range(1,10,2)],
-        'algorithm' : ['deprecated', 'SAMME'],
-     }
-    )
+                LogisticRegression(),
+                {
+                    'penalty':['l1','l2','elasticnet', None],
+                    'C' : [0.1, 0.3, 0.5, 0.7, 0.9],
+                    'solver' : ['lbfgs', 'newton-cg', 'sag', 'saga'],
+                    'max_iter' : [100, 300, 500, 700, 900]
+                }
+                ),
+                ('Decision Tree Classifier',
+                DecisionTreeClassifier(),
+                {
+                    'criterion' : ['gini', 'entropy'],
+                    'splitter' : ['best', 'random'],
+                    'max_depth': [x for x in range(0,5)],
+                    'min_samples_split' : [x for x in range(2,10, 2)],
+                    'min_samples_leaf' : [x for x in range(1,10, 3)],
+                    'max_features' : [x for x in range(0,5)],
+                }
+                ),
+                ('Random Forest Classifier',
+                RandomForestClassifier(),
+                {
+                    'n_estimators' : [x*100 for x in range(1,10,2)],
+                    'criterion' : ['gini', 'entropy', 'log_loss'],
+                    'max_depth': [x for x in range(0,5)],
+                    'min_samples_split' : [x for x in range(2,10, 2)],
+                    'min_samples_leaf' : [x for x in range(1,10,3)],
+                    'min_weight_fraction_leaf' : [x/10 for x in range(1,10,3)],
+                    'max_features' : ['sqrt', 'log2', None],
+                }
+                ), 
+                ('Gradient Boosting Classifier',
+                GradientBoostingClassifier(),
+                {
+                    'loss' : ['log_loss', 'exponential'],
+                    'learning_rate' : [x/10 for x in range(1,10,3)],
+                    'n_estimators' : [x*100 for x in range(1,10,2)],
+                    'subsample' : [x/10 for x in range(1,10,3)],
+                    'criterion' : ['friedman_mse', 'squared_error'],
+                    'min_samples_split' : [x for x in range(2,10, 2)],
+                    'min_samples_leaf' : [x for x in range(1,10,3)],
+                    'min_weight_fraction_leaf' : [x/10 for x in range(1,10,3)],
+                    'max_depth' : [x for x in range(3,10,2)],
+                    'max_features' : ['sqrt', 'log2'],
+                }
+                ),
+                ('Support Vector Classifier',
+                SVC(),
+                {
+                    'C' : [x/10 for x in range(1,10,3)],
+                    'kernel' : ['linear', 'poly', 'rbf', 'sigmoid'],
+                    'degree' : [x for x in range(3,10,3)],
+                    'gamma' : ['scale', 'auto'],
+                    'coef0' : [x/10 for x in range(1,10,3)],
+                    'tol' : [x/1000 for x in range(1,10, 2)],
+                }
+                ), 
+                ('K Nearest Neighbors Classifier',
+                KNeighborsClassifier(),
+                {
+                    'n_neighbors' : [x for x in range(1,10,3)],
+                    'weights' : ['uniform','distance'],
+                    'algorithm' : ['auto', 'ball_tree', 'kd_tree', 'brute'],
+                    'leaf_size' : [x for x in range(30,100,20)],
+                    'p' : [x for x in range(2,10,3)],
+                }
+                ),
+                ('Adaboost Classifier',
+                AdaBoostClassifier(),
+                {
+                    'n_estimators' : [x*100 for x in range(1, 10, 2)],
+                    'learning_rate' : [x/10 for x in range(1,10,2)],
+                    'algorithm' : ['deprecated', 'SAMME'],
+                }
+                )
             ]
 
             best_model_name = None
