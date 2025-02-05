@@ -10,4 +10,6 @@ pymongo
 certifi
 pymongo[srv]==3.6
 dill
+catboost
+xgboost
 # -e .
