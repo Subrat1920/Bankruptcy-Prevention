@@ -14,6 +14,7 @@ from xgboost import XGBClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.model_selection import GridSearchCV
 
 @dataclass
 class ModelTrainerConfig:
@@ -42,13 +43,101 @@ class ModelTrainer:
                 'K Nearest Neighbors' : KNeighborsClassifier(),
             }
 
-            model_report:dict=evaluate_model(x_train=x_train, y_train=y_train, x_test=x_test, y_test=y_test,models=models)
-
-            best_model_score = max(sorted(model_report.values()))
-            best_model_name = list(model_report.keys())[
-                list(model_report.values()).index(best_model_score)
+            model_params = [
+                ('Logistic Regression',
+    LogisticRegression(),
+    {
+        'penalty':['l1','l2','elasticnet', None],
+        'C' : [0.1, 0.3, 0.5, 0.7, 0.9],
+        'solver' : ['lbfgs', 'newton-cg', 'sag', 'saga'],
+        'max_iter' : [100, 300, 500, 700, 900]
+    }
+    ),
+    ('Decision Tree Classifier',
+    DecisionTreeClassifier(),
+     {
+         'criterion' : ['gini', 'entropy'],
+         'splitter' : ['best', 'random'],
+         'max_depth': [x for x in range(0,5)],
+         'min_samples_split' : [x for x in range(2,10, 2)],
+         'min_samples_leaf' : [x for x in range(1,10, 3)],
+         'max_features' : [x for x in range(0,5)],
+      }
+    ),
+    ('Random Forest Classifier',
+     RandomForestClassifier(),
+     {
+        'n_estimators' : [x*100 for x in range(1,10,2)],
+        'criterion' : ['gini', 'entropy', 'log_loss'],
+        'max_depth': [x for x in range(0,5)],
+        'min_samples_split' : [x for x in range(2,10, 2)],
+        'min_samples_leaf' : [x for x in range(1,10,3)],
+        'min_weight_fraction_leaf' : [x/10 for x in range(1,10,3)],
+        'max_features' : ['sqrt', 'log2', None],
+     }
+    ), 
+    ('Gradient Boosting Classifier',
+    GradientBoostingClassifier(),
+     {
+        'loss' : ['log_loss', 'exponential'],
+        'learning_rate' : [x/10 for x in range(1,10,3)],
+        'n_estimators' : [x*100 for x in range(1,10,2)],
+        'subsample' : [x/10 for x in range(1,10,3)],
+        'criterion' : ['friedman_mse', 'squared_error'],
+        'min_samples_split' : [x for x in range(2,10, 2)],
+        'min_samples_leaf' : [x for x in range(1,10,3)],
+        'min_weight_fraction_leaf' : [x/10 for x in range(1,10,3)],
+        'max_depth' : [x for x in range(3,10,2)],
+        'max_features' : ['sqrt', 'log2'],
+     }
+    ),
+    ('Support Vector Classifier',
+    SVC(),
+     {
+        'C' : [x/10 for x in range(1,10,3)],
+        'kernel' : ['linear', 'poly', 'rbf', 'sigmoid'],
+        'degree' : [x for x in range(3,10,3)],
+        'gamma' : ['scale', 'auto'],
+        'coef0' : [x/10 for x in range(1,10,3)],
+        'tol' : [x/1000 for x in range(1,10, 2)],
+     }
+    ), 
+    ('K Nearest Neighbors Classifier',
+    KNeighborsClassifier(),
+     {
+        'n_neighbors' : [x for x in range(1,10,3)],
+        'weights' : ['uniform','distance'],
+        'algorithm' : ['auto', 'ball_tree', 'kd_tree', 'brute'],
+        'leaf_size' : [x for x in range(30,100,20)],
+        'p' : [x for x in range(2,10,3)],
+     }
+    ),
+    ('Adaboost Classifier',
+     AdaBoostClassifier(),
+     {
+        'n_estimators' : [x*100 for x in range(1, 10, 2)],
+        'learning_rate' : [x/10 for x in range(1,10,2)],
+        'algorithm' : ['deprecated', 'SAMME'],
+     }
+    )
             ]
 
+            best_model_name = None
+            best_model_score = 0
+
+            for model_name, model, param_grid in model_params:
+                logging.info(f"Training and tuning hyperparameters for {model_name}...")
+                grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=3, n_jobs=-1, verbose=2)
+                grid_search.fit(x_train, y_train)
+
+                logging.info(f"Best parameters for {model_name}: {grid_search.best_params_}")
+                logging.info(f"Best score for {model_name}: {grid_search.best_score_}")
+
+                # Check if this model is the best one so far
+                if grid_search.best_score_ > best_model_score:
+                    best_model_name = model_name
+                    best_model_score = grid_search.best_score_
+                    best_model = grid_search.best_estimator_
             best_model = models[best_model_name]
             if best_model_score < 0.6:
                 raise CustomException('No Best Model Found')
