@@ -37,6 +37,8 @@ The dataset contains financial and operational risk factors related to bankruptc
         python -m src.components.data_ingestion
 ##### 6. Run the Flask App to get the UI/UX 
         python app.py        
+##### 7. Open the link below
+        http://127.0.0.1:5000/
 
 #### 🏗️ Project Architecture
         1️⃣ **Data Ingestion:** Load and preprocess financial data.
