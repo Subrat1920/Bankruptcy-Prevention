@@ -90,10 +90,11 @@
 <body>
     <!-- Header -->
     <div class="container">
-        <h2>Predict Your Business Stability</h2>
+        <h2>Business Stability Analysis: Data-Driven Insights</h2>
         <p class="lead">
-            Gain insights into your financial future! Enter key risk factors below,  
-            and let our AI-powered model help you make informed decisions to prevent bankruptcy.
+            Gain a deeper understanding of the financial patterns that influence business stability. 
+            Our analysis uncovers critical dependencies, risk trends, and bankruptcy probabilities 
+            to enhance predictive accuracy.
         </p>
     </div>
 
@@ -104,13 +105,21 @@
         <div class="row">
             <div class="col">
                 <div class="img-container">
-                    <h3>Dependencies for the Model</h3>
+                    <h3>Risk Factor Interdependencies</h3>
+                    <p class="text-muted">
+                        Visualizing how different financial risks are correlated and contribute 
+                        to overall business stability.
+                    </p>
                     <img src="{{ heatmap_image }}" alt="Heatmap">
                 </div>
             </div>
             <div class="col">
                 <div class="img-container">
-                    <h3>Bankruptcy and Non-Bankruptcy Rate</h3>
+                    <h3>Bankruptcy vs. Non-Bankruptcy Distribution</h3>
+                    <p class="text-muted">
+                        A data-driven breakdown of businesses that faced bankruptcy versus those 
+                        that remained financially stable.
+                    </p>
                     <img src="{{ pie_chart }}" alt="Pie Chart">
                 </div>
             </div>
@@ -121,10 +130,14 @@
 
     <!-- Histogram Section -->
     <div class="container hist">
-        <h3>Check for the Trends with Different Dependencies</h3>
+        <h3>Identifying Patterns in Business Risks</h3>
+        <p class="text-muted">
+            Discover how various financial factors impact stability through detailed trend analysis.
+        </p>
         <div class="img-container">
             <img src="{{ histograms }}" alt="Histogram">
         </div>
     </div>
+    <hr>
 </body>
 </html>

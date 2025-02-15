@@ -192,20 +192,28 @@
                   </form>
               </div>
 
-              <!-- Right Column: Prediction Summary -->
               <div class="col-md-6">
-                  <h4 class="d-flex justify-content-between align-items-center mb-3">
-                      <span class="text-primary">Prediction Summary</span>
-                  </h4>
-                  <ul class="list-group mb-3">
-                      <li class="list-group-item d-flex justify-content-between lh-sm">
-                          <div>
-                              <h6 class="my-0">{{ result }}</h6>
-                              <small class="text-body-secondary">Enter risk factors to analyze bankruptcy probability.</small>
-                          </div>
-                      </li>
-                  </ul>
-              </div>
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Prediction Summary</span>
+                </h4>
+            
+                {% if result %}
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">{{ result }}</h6>
+                            </div>
+                        </li>
+                    </ul>
+            
+                    <!-- Probability Pie Chart Section -->
+                    <h5 class="text-primary">Probability Summary</h5>
+                    <img src="{{ prob_pie }}" alt="Probability Pie Chart" class="img-fluid rounded">
+                {% else %}
+                    <p class="text-muted">Submit your business risks to see predictions.</p>
+                {% endif %}
+            </div>
+            
           </div>
       </div>
   </div>

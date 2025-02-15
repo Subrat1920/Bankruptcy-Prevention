@@ -60,3 +60,16 @@ def tracking_trends():
     buf.close()
     
     return f'data:image/png;base64,{encoded_img}'
+
+
+def prediction_pie(prob_bankrupt, prob_not_bankrupt):
+    plt.figure(figsize=(6, 6))
+    plt.pie(x=[prob_bankrupt, prob_not_bankrupt], labels=["Bankrupt Percentage", "Not Bankrupt Percentage"], autopct='%1.1f%%', colors=['#A9B5DF', '#7886C7'])
+
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight')
+    buf.seek(0)
+    encoded_img = base64.b64encode(buf.getvalue()).decode('ascii')
+    buf.close()
+    
+    return f'data:image/png;base64,{encoded_img}'
