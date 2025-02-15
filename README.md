@@ -9,6 +9,21 @@ Bankruptcy is a critical issue that can have severe economic and financial conse
     - Provide a dashboard or report to visualize predictions.
     - Offer actionable insights to businesses for bankruptcy prevention.
 
+#### 📊 Dataset Description
+The dataset contains financial and operational risk factors related to bankruptcy. 
+
+- **Features:**
+  - `industrial_risk`: Risk level in the industry (0-1 scale).
+  - `management_risk`: Level of management risk (0-1 scale).
+  - `financial_flexibility`: Financial adaptability score (0-1 scale).
+  - `credibility`: Creditworthiness of the business (0-1 scale).
+  - `competitiveness`: Market competitiveness (0-1 scale).
+  - `operating_risk`: Operational risks associated with the business (0-1 scale).
+  
+- **Target Variable:**
+  - `class`: Indicates whether the business is at risk of bankruptcy (`bankruptcy`) or not (`non-bankruptcy`).
+
+
 ### 📌 How to Run the Project
 ##### 1. Clone the Repository
         git clone https://github.com/Subrat1920/Bankruptcy-Prevention.git
@@ -22,4 +37,11 @@ Bankruptcy is a critical issue that can have severe economic and financial conse
         python -m src.components.data_ingestion
 ##### 6. Run the Flask App to get the UI/UX 
         python app.py        
-        
+
+#### 🏗️ Project Architecture
+1️⃣ **Data Ingestion:** Load and preprocess financial data.
+2️⃣ **Feature Engineering:** Select and transform relevant features.
+3️⃣ **Model Training:** Train multiple machine learning models.
+4️⃣ **Evaluation:** Compare model performance using metrics.
+5️⃣ **Deployment:** Integrate with Flask for real-time predictions.
+
