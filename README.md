@@ -18,4 +18,8 @@ Bankruptcy is a critical issue that can have severe economic and financial conse
         venv\Scripts\activate
 ##### 4. Install all the Dependenices
         pip install -r requirements.txt
+##### 5. Run the Data Ingestion module to get Data Ingested and Start Model Training
+        python -m src.components.data_ingestion
+##### 6. Run the Flask App to get the UI/UX 
+        python app.py        
         
