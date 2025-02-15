@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Centering content */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2, h3 {
+            color: #2D336B;
+            text-align: center;
+        }
+
+        p.lead {
+            text-align: center;
+        }
+
+        /* Ensuring alignment for both sections */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start; /* Ensures top part aligns */
+            gap: 20px;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 400px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        /* Image Styling */
+        .img-container img {
+            width: 100%;
+            height: auto;
+            max-width: 450px;
+            border-radius: 8px;
+        }
+
+        /* Making sure images in the same row align */
+        .col .img-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 350px; /* Ensures equal height */
+        }
+
+        /* Histogram Section */
+        .hist {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .hist .img-container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .hist img {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+
+        /* Horizontal Line Styling */
+        hr {
+            border: 1px solid #2D336B;
+            width: 80%;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="container">
+        <h2>Predict Your Business Stability</h2>
+        <p class="lead">
+            Gain insights into your financial future! Enter key risk factors below,  
+            and let our AI-powered model help you make informed decisions to prevent bankruptcy.
+        </p>
+    </div>
+
+    <hr>
+
+    <!-- Dependencies and Pie Chart Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="img-container">
+                    <h3>Dependencies for the Model</h3>
+                    <img src="{{ heatmap_image }}" alt="Heatmap">
+                </div>
+            </div>
+            <div class="col">
+                <div class="img-container">
+                    <h3>Bankruptcy and Non-Bankruptcy Rate</h3>
+                    <img src="{{ pie_chart }}" alt="Pie Chart">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Histogram Section -->
+    <div class="container hist">
+        <h3>Check for the Trends with Different Dependencies</h3>
+        <div class="img-container">
+            <img src="{{ histograms }}" alt="Histogram">
+        </div>
+    </div>
+</body>
+</html>
