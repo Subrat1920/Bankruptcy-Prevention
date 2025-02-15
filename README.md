@@ -39,9 +39,9 @@ The dataset contains financial and operational risk factors related to bankruptc
         python app.py        
 
 #### 🏗️ Project Architecture
-1️⃣ **Data Ingestion:** Load and preprocess financial data.
-2️⃣ **Feature Engineering:** Select and transform relevant features.
-3️⃣ **Model Training:** Train multiple machine learning models.
-4️⃣ **Evaluation:** Compare model performance using metrics.
-5️⃣ **Deployment:** Integrate with Flask for real-time predictions.
+        1️⃣ **Data Ingestion:** Load and preprocess financial data.
+        2️⃣ **Feature Engineering:** Select and transform relevant features.
+        3️⃣ **Model Training:** Train multiple machine learning models.
+        4️⃣ **Evaluation:** Compare model performance using metrics.
+        5️⃣ **Deployment:** Integrate with Flask for real-time predictions.
 
