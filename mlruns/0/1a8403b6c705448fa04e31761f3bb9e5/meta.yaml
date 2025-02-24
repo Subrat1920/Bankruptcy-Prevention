@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/1a8403b6c705448fa04e31761f3bb9e5/artifacts
+end_time: 1740389436079
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1a8403b6c705448fa04e31761f3bb9e5
+run_name: Extra Trees Classifier
+run_uuid: 1a8403b6c705448fa04e31761f3bb9e5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740389429454
+status: 3
+tags: []
+user_id: HP

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/84f4b6ac46624a2c92fda87f9c70abdb/artifacts
+end_time: 1740389442192
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 84f4b6ac46624a2c92fda87f9c70abdb
+run_name: Support Vector Classifier
+run_uuid: 84f4b6ac46624a2c92fda87f9c70abdb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740389436271
+status: 3
+tags: []
+user_id: HP

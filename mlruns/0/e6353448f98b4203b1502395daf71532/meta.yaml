@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/e6353448f98b4203b1502395daf71532/artifacts
+end_time: 1740389455934
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e6353448f98b4203b1502395daf71532
+run_name: Adaboost Classifier
+run_uuid: e6353448f98b4203b1502395daf71532
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740389449920
+status: 3
+tags: []
+user_id: HP

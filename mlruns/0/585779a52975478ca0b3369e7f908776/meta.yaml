@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/585779a52975478ca0b3369e7f908776/artifacts
+end_time: 1740389449242
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 585779a52975478ca0b3369e7f908776
+run_name: K Nearest Neighbors Classifier
+run_uuid: 585779a52975478ca0b3369e7f908776
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740389442699
+status: 3
+tags: []
+user_id: HP

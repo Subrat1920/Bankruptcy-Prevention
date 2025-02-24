@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/ff4e1ac292314c74a4b905268353dfee/artifacts
+end_time: 1740389408277
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ff4e1ac292314c74a4b905268353dfee
+run_name: Logistic Regression
+run_uuid: ff4e1ac292314c74a4b905268353dfee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740389397759
+status: 3
+tags: []
+user_id: HP

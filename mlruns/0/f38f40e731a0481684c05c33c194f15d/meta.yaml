@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/f38f40e731a0481684c05c33c194f15d/artifacts
+end_time: 1740389414601
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f38f40e731a0481684c05c33c194f15d
+run_name: Decision Tree Classifier
+run_uuid: f38f40e731a0481684c05c33c194f15d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740389408354
+status: 3
+tags: []
+user_id: HP
