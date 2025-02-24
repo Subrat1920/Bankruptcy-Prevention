@@ -173,3 +173,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# mlflow
+mlartifacts
+mlruns/0
+mlruns
