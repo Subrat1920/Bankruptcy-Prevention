@@ -40,6 +40,17 @@ The dataset contains financial and operational risk factors related to bankruptc
 ##### 7. Open the link below
         http://127.0.0.1:5000/
 
+### How to Run with MLFLOW
+##### 1. Open new terminal
+##### 2. Activate Virtual Environment
+        venv\Scripts\activate
+##### 3. Start MLFlow UI
+        mlflow ui
+##### 4. Run MLFlow UI File for Tracing
+        python train_with_mlflow.py
+##### 5. Open the link
+        http://localhost:5000/#/experiments/0
+
 #### 🏗️ Project Architecture
         1️⃣ **Data Ingestion:** Load and preprocess financial data.
         2️⃣ **Feature Engineering:** Select and transform relevant features.

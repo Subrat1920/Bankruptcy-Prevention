@@ -25,6 +25,7 @@ def get_requirements()->List[str]:
 setup(
     name = 'Bankruptcy Prevention',
     version = '0.0.1',
+    author = 'P500 Group 2',
     packages = find_packages(),
     install_requires = get_requirements()
 )
